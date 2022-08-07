@@ -10,11 +10,7 @@ const URL_API = 'https://api.mercadolibre.com/sites/MLB/search?category=';
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async ({ categoryId, queryProducts }) => {
-    console.log('categoryId passado por parâmetro', categoryId);
-    console.log('query passado por parâmetro', queryProducts);
-
     const response = await fetch(`${URL_API}${categoryId}&q=${queryProducts}`);
-    // console.log(`${URL_API}${categoryId}&q=${query}`);
     const data = await response.json();
     return data.results;
   },
