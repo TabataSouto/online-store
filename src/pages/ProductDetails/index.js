@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Header from '../../components/Header';
+import AddCartButton from '../../components/AddCartButton';
 import iconPrevious from '../../images/icon-previous.svg';
 import iconNext from '../../images/icon-next.svg';
 import Style from './style';
@@ -38,6 +39,7 @@ export default function ProductDetails() {
             && `R$ ${product.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`
           }
         </p>
+        <AddCartButton idProduct={ product.id } />
       </div>
       <Style.MainProductDetails>
         <div>

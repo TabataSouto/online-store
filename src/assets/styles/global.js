@@ -10,6 +10,7 @@ export default createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.backgrounds.backgroundBody};
     font-size: 16px;
+    cursor: default;
   }
   button {
     cursor: pointer;
