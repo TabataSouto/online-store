@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchProductDetails } from '../../redux/slices/productDetailsSlice';
 import iconLoading from '../../images/icon-loading.gif';
+import {
+  addShoppingCart, updateShoppingCart,
+} from '../../redux/slices/shoopingCartSlice';
 import Style from './style';
 
 const TITLE_LENGTH = 35;
@@ -10,12 +13,29 @@ const TITLE_LENGTH = 35;
 export default function CardProducts() {
   const dispatch = useDispatch();
 
-  const { products } = useSelector((state) => ({
+  const { products, shoppingCart } = useSelector((state) => ({
     products: state.apiProducts,
+    shoppingCart: state.shoppingCart.products,
   }));
 
   const productDetails = ({ target: { name } }) => {
     dispatch(fetchProductDetails(name));
+  };
+
+  const handleClick = ({ target: { name } }) => {
+    const product = products.list
+      .filter((el) => el.id === name)
+      .map(({ id, title, thumbnail, price }) => (
+        { id, title, thumbnail, price, qtde: 1 }))[0];
+
+    const existedProduct = shoppingCart
+      .some((el) => el.id === name);
+
+    if (!existedProduct) {
+      dispatch(addShoppingCart(product));
+    } else {
+      dispatch(updateShoppingCart(product));
+    }
   };
 
   return (
@@ -59,6 +79,13 @@ export default function CardProducts() {
                 {' '}
                 { price.toLocaleString('pt-br', { minimumFractionDigits: 2 }) }
               </p>
+              <button
+                name={ id }
+                type="button"
+                onClick={ handleClick }
+              >
+                Adicionar ao carrinho
+              </button>
             </Style.Card>
           ))
       }

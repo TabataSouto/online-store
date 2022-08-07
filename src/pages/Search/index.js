@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
-import CartButton from '../../components/CartButton';
+import { useNavigate } from 'react-router-dom';
 import Categories from '../../components/Categories';
 import Input from '../../components/Input';
 import CardProducts from '../../components/CardProducts';
-
 import { fetchProducts } from '../../redux/slices/productsSlice';
 import iconSearch from '../../images/icon-search.svg';
+import iconCart from '../../images/icon-cart.svg';
 import Style from './style';
 
 export default function Search() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [search, setSearch] = useState('');
 
@@ -43,7 +43,12 @@ export default function Search() {
             value={ search }
             onChange={ handleChange }
           />
-          <CartButton />
+          <button
+            type="button"
+            onClick={ () => navigate('/shopping-cart') }
+          >
+            <img src={ iconCart } alt="icone carrinho de compras" width="30" />
+          </button>
         </div>
         <CardProducts />
       </Style.ContainerSearch>

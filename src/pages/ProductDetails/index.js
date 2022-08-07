@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import CardButton from '../../components/CartButton';
-import iconGoBack from '../../images/icon-go-back.svg';
+import Header from '../../components/Header';
 import iconPrevious from '../../images/icon-previous.svg';
 import iconNext from '../../images/icon-next.svg';
 import Style from './style';
@@ -30,10 +29,7 @@ export default function ProductDetails() {
 
   return (
     <section>
-      <div>
-        <img src={ iconGoBack } alt="Voltar para a página anterior" width="25" />
-        <CardButton />
-      </div>
+      <Header />
       <div>
         <h5>{product.title}</h5>
         <p>
