@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import apiCategories from '../slices/apiCategoriesSlice';
-import apiProductsFromCategory from '../slices/apiProductsFromCategorySlice';
+import apiCategories from '../slices/categoriesSlice';
+import apiProducts from '../slices/productsSlice';
 
 const store = configureStore({
   reducer: {
     apiCategories,
-    apiProductsFromCategory,
+    apiProducts,
   },
 });
 

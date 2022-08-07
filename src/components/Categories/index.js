@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCategories } from '../../redux/slices/apiCategoriesSlice';
+import { fetchCategories } from '../../redux/slices/categoriesSlice';
+import { fetchProducts } from '../../redux/slices/productsSlice';
 import Style from './style';
 
 export default function Categories() {
@@ -14,12 +15,18 @@ export default function Categories() {
     dispatch(fetchCategories());
   }, [dispatch]);
 
+  const handleClick = ({ target: { name } }) => {
+    dispatch(fetchProducts({ categoryId: name, queryProducts: '' }));
+  };
+
   return (
     <Style.CategoriesList>
       { categories.map(({ id, name }) => (
         <button
           key={ id }
+          name={ id }
           type="button"
+          onClick={ handleClick }
         >
           { name }
         </button>

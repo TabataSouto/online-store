@@ -16,7 +16,7 @@ export const fetchCategories = createAsyncThunk(
   },
 );
 
-const apiCategoriesSlice = createSlice({
+const categoriesSlice = createSlice({
   name: 'apis',
   initialState,
   extraReducers: {
@@ -33,4 +33,4 @@ const apiCategoriesSlice = createSlice({
   },
 });
 
-export default apiCategoriesSlice.reducer;
+export default categoriesSlice.reducer;

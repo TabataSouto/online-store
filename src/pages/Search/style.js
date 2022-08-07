@@ -11,6 +11,16 @@ const CategoriesContainer = styled.section`
 
 const ContainerSearch = styled.section`
   flex-basis: 80%;
+  & div {
+    align-items: center;
+    display: flex;
+    & button:nth-child(1) {
+      height: 20px;
+      & img {
+        width: 15px;
+      }
+    }
+  }
 `;
 
 export default {
