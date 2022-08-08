@@ -17,7 +17,7 @@ export default function AddCartButton({ idProduct }) {
     const product = products.list
       .filter((el) => el.id === name)
       .map(({ id, title, thumbnail, price }) => (
-        { id, title, thumbnail, price, qtde: 1 }))[0];
+        { id, title, thumbnail, price, singlePrice: price, qtde: 1 }))[0];
 
     const existedProduct = shoppingCart
       .some((el) => el.id === name);

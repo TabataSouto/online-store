@@ -13,19 +13,33 @@ const shoppingCartSlice = createSlice({
     },
     updateShoppingCart: (state, { payload }) => {
       const product = state.products.find((p) => p.id === payload.id);
-      console.log('quantidade antes de atualizar', product.qtde);
-
       product.qtde += 1;
-      console.log('quantidade depois de atualizar', product.qtde);
-
-      console.log('preço antes de atualizar', product.price);
       product.price = product.qtde * payload.price;
-
-      console.log('preço depois de atualizar', product.price);
+    },
+    incrementProduct: (state, { payload }) => {
+      const product = state.products.find((p) => p.id === payload);
+      product.qtde += 1;
+      product.price += product.singlePrice;
+    },
+    decrementProduct: (state, { payload }) => {
+      const product = state.products.find((p) => p.id === payload);
+      console.log(product.qtde);
+      if (product.qtde === 1) {
+        product.qtde = 1;
+        product.price = product.singlePrice;
+      } else {
+        product.qtde -= 1;
+        product.price -= product.singlePrice;
+      }
+    },
+    removeProduct: (state, { payload }) => {
+      state.products = payload;
     },
   },
 });
 
-export const { addShoppingCart, updateShoppingCart } = shoppingCartSlice.actions;
+export const {
+  addShoppingCart, updateShoppingCart, incrementProduct, decrementProduct, removeProduct,
+} = shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;
