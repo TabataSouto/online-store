@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  incrementProduct, decrementProduct, removeProduct,
-} from '../../redux/slices/shoopingCartSlice';
+import { removeProduct } from '../../redux/slices/shoopingCartSlice';
+import SumOrSubCartProduct from '../SumOrSubCartProduct';
 import iconRemove from '../../images/icon-remove.svg';
 import Style from './style';
 
@@ -13,17 +12,8 @@ export default function ProductsCart() {
     shoppingCart: state.shoppingCart.products,
   }));
 
-  const handleClick = ({ target: { name, id } }) => {
-    if (name === 'sum') {
-      dispatch(incrementProduct(id));
-    } else {
-      dispatch(decrementProduct(id));
-    }
-  };
-
   const handleRemoveItem = ({ target: { name } }) => {
     const removeItem = shoppingCart.filter(({ id }) => id !== name);
-    console.log(removeItem);
     dispatch(removeProduct(removeItem));
   };
 
@@ -43,25 +33,10 @@ export default function ProductsCart() {
           </button>
           <img src={ thumbnail } alt="imagem do produto a ser comprado" />
           <p>{ title }</p>
-          <button
-            id={ id }
-            type="button"
-            name="sub"
-            onClick={ handleClick }
-          >
-            -
-          </button>
-          <div>
-            <p>{ qtde }</p>
-          </div>
-          <button
-            id={ id }
-            type="button"
-            name="sum"
-            onClick={ handleClick }
-          >
-            +
-          </button>
+          <SumOrSubCartProduct
+            idProduct={ id }
+            qtde={ qtde }
+          />
           <p>{ `RS ${price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}` }</p>
         </div>
       )) }

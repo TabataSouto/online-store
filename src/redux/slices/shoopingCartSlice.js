@@ -23,7 +23,6 @@ const shoppingCartSlice = createSlice({
     },
     decrementProduct: (state, { payload }) => {
       const product = state.products.find((p) => p.id === payload);
-      console.log(product.qtde);
       if (product.qtde === 1) {
         product.qtde = 1;
         product.price = product.singlePrice;
