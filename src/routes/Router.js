@@ -8,7 +8,7 @@ export default function Router() {
   return (
     <Routes>
       <Route exact path="/" element={ <Search /> } />
-      <Route path="/:id" element={ <ProductDetails /> } />
+      <Route path="/product/:id" element={ <ProductDetails /> } />
       <Route path="/shopping-cart" element={ <ShoppingCart /> } />
     </Routes>
   );

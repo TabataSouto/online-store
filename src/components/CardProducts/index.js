@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchProductDetails } from '../../redux/slices/productDetailsSlice';
 import iconLoading from '../../images/icon-loading.gif';
 import Style from './style';
 import AddCartButton from '../AddCartButton';
@@ -9,15 +8,9 @@ import AddCartButton from '../AddCartButton';
 const TITLE_LENGTH = 35;
 
 export default function CardProducts() {
-  const dispatch = useDispatch();
-
   const { products } = useSelector((state) => ({
     products: state.apiProducts,
   }));
-
-  const productDetails = ({ target: { name } }) => {
-    dispatch(fetchProductDetails(name));
-  };
 
   return (
     <Style.MainCard>
@@ -49,7 +42,7 @@ export default function CardProducts() {
                     : title
                 }
               </p>
-              <Link to={ `${id}` } onClick={ productDetails }>
+              <Link to={ `/product/${id}` }>
                 <img
                   src={ thumbnail }
                   alt={ `Imagem referente ao produto ${title}` }
