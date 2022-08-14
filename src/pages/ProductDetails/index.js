@@ -3,10 +3,12 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/Header';
 import AddCartButton from '../../components/AddCartButton';
+import EvaluationForm from '../../components/EvaluationForm';
 import { fetchProductDetails } from '../../redux/slices/productDetailsSlice';
 import iconLoading from '../../images/icon-loading.gif';
 import Style from './style';
 import ProductImages from '../../components/ProductImages';
+import ResponseRatings from '../../components/ResponseRatings';
 
 const MAGIC_NUMBER = 9;
 
@@ -56,6 +58,8 @@ export default function ProductDetails() {
             {product.id !== undefined && <AddCartButton idProduct={ product.id } /> }
           </>
       }
+      <EvaluationForm />
+      <ResponseRatings />
     </section>
   );
 }
