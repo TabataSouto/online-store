@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addEmail, addMessage } from '../../redux/slices/evaluationSlice';
+import { evaluationProduct } from '../../redux/slices/evaluationSlice';
 import RatingStar from '../RatingStar';
 import { getEvaluation, saveEvaluation } from '../../helpers/saveEvaluation';
+
+const MAGIC_NUMBER = 9;
 
 export default function EvaluationForm() {
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ export default function EvaluationForm() {
 
   const evaluationsStorage = getEvaluation();
   const save = {
+    id: window.location.pathname.slice(MAGIC_NUMBER),
     email: evaluation.email,
     message: evaluation.message,
     qtdeStar: evaluationGrade,
@@ -28,15 +31,14 @@ export default function EvaluationForm() {
     const email = /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/;
 
     if (evaluationGrade > 0 && email.test(evaluation.email)) {
-      dispatch(addEmail(evaluation.email));
-      dispatch(addMessage(evaluation.message));
+      dispatch(evaluationProduct(save));
 
-      console.log(evaluationsStorage);
       if (!evaluationsStorage) {
         saveEvaluation([save]);
+      } else {
+        evaluationsStorage.push(save);
+        saveEvaluation(evaluationsStorage);
       }
-      evaluationsStorage.push(save);
-      saveEvaluation(evaluationsStorage);
     }
   };
 

@@ -10,10 +10,8 @@ const evaluationSlice = createSlice({
   name: 'evaluation',
   initialState,
   reducers: {
-    addEmail: (state, { payload }) => {
-      state.email = payload;
-    },
-    addMessage: (state, { payload }) => {
+    evaluationProduct: (state, { payload }) => {
+      state.email = payload.email;
       state.message = payload;
     },
     addQtde: (state, { payload }) => {
@@ -22,6 +20,6 @@ const evaluationSlice = createSlice({
   },
 });
 
-export const { addEmail, addMessage, addQtde } = evaluationSlice.actions;
+export const { evaluationProduct, addQtde } = evaluationSlice.actions;
 
 export default evaluationSlice.reducer;
