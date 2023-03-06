@@ -7,7 +7,7 @@ import CardProducts from '../../components/CardProducts';
 import { fetchProducts } from '../../redux/slices/productsSlice';
 import iconSearch from '../../images/icon-search.svg';
 import iconCart from '../../images/icon-cart.svg';
-import Style from './style';
+import Style from './Style';
 
 export default function Search() {
   const navigate = useNavigate();
@@ -23,13 +23,13 @@ export default function Search() {
   };
 
   return (
-    <Style.PageContainer>
+    <Style.ContainerMain>
 
-      <Style.CategoriesContainer>
+      <div>
         <Categories />
-      </Style.CategoriesContainer>
+      </div>
 
-      <Style.ContainerSearch>
+      <div>
         <div>
           <button
             type="button"
@@ -51,7 +51,7 @@ export default function Search() {
           </button>
         </div>
         <CardProducts />
-      </Style.ContainerSearch>
-    </Style.PageContainer>
+      </div>
+    </Style.ContainerMain>
   );
 }

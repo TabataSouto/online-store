@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeProduct } from '../../redux/slices/shoopingCartSlice';
 import SumOrSubCartProduct from '../SumOrSubCartProduct';
 import iconRemove from '../../images/icon-remove.svg';
-import Style from './style';
 
 export default function ProductsCart() {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ export default function ProductsCart() {
   };
 
   return (
-    <Style.MainSopphingCart>
+    <section>
       { shoppingCart.length > 0
       && shoppingCart.map(({
         id, thumbnail, title, qtde, price,
@@ -47,6 +46,6 @@ export default function ProductsCart() {
         }`}
 
       </h2>
-    </Style.MainSopphingCart>
+    </section>
   );
 }

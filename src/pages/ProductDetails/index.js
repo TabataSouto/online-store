@@ -6,7 +6,6 @@ import AddCartButton from '../../components/AddCartButton';
 import EvaluationForm from '../../components/EvaluationForm';
 import { fetchProductDetails } from '../../redux/slices/productDetailsSlice';
 import iconLoading from '../../images/icon-loading.gif';
-import Style from './style';
 import ProductImages from '../../components/ProductImages';
 import ResponseRatings from '../../components/ResponseRatings';
 
@@ -41,7 +40,7 @@ export default function ProductDetails() {
                 }
               </p>
             </div>
-            <Style.MainProductDetails>
+            <div>
               { product.pictures !== undefined && <ProductImages product={ product } />}
               <div>
                 <p>O que você precisa saber sobre este produto</p>
@@ -54,7 +53,7 @@ export default function ProductDetails() {
               ))}
                 </ul>
               </div>
-            </Style.MainProductDetails>
+            </div>
             {product.id !== undefined && <AddCartButton idProduct={ product.id } /> }
           </>
       }

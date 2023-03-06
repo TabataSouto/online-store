@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import iconLoading from '../../images/icon-loading.gif';
-import Style from './style';
 import AddCartButton from '../AddCartButton';
 
 const TITLE_LENGTH = 35;
@@ -13,7 +12,7 @@ export default function CardProducts() {
   }));
 
   return (
-    <Style.MainCard>
+    <section>
       {
         (!products.list.length && products.status === null)
         && <p>Digite algum termo de pesquisa ou escolha uma categoria.</p>
@@ -34,7 +33,7 @@ export default function CardProducts() {
             thumbnail,
             price,
           }) => (
-            <Style.Card key={ id }>
+            <div key={ id }>
               <p>
                 {
                   title.length > TITLE_LENGTH
@@ -54,9 +53,9 @@ export default function CardProducts() {
                 { price.toLocaleString('pt-br', { minimumFractionDigits: 2 }) }
               </p>
               <AddCartButton idProduct={ id } />
-            </Style.Card>
+            </div>
           ))
       }
-    </Style.MainCard>
+    </section>
   );
 }
