@@ -1,9 +1,9 @@
 import { styled } from "@mui/system";
 
 const Container = styled('section')({
+    width: 280,
     border: '1px solid black',
     padding: 10,
-    margin: '5px 10px',
     overflow: 'auto',
     height: '98.5vh',
 

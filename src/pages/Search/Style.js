@@ -1,9 +1,24 @@
 import { styled } from "@mui/system";
 
-const ContainerMain = styled('section')({
+const Container = styled('section')({
+    width: '98.5%',
+    margin: '5px 10px',
     display: 'flex',
-  });
+  })
 
-export default {
-  ContainerMain
+  const SearchContainer = styled('div')({
+    width: '100%'
+  })
+
+const SearchComponent = styled('div')({
+    width: 'inherit',
+    // display: 'flex',
+    // padding: '1px 20px',
+    // justifyContent: 'space-around'
+  })
+
+export {
+  Container,
+  SearchContainer,
+  SearchComponent,
 }
