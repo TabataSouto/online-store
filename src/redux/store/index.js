@@ -3,7 +3,7 @@ import apiCategories from '../slices/categoriesSlice';
 import apiProducts from '../slices/productsSlice';
 import apiProductDetails from '../slices/productDetailsSlice';
 import shoppingCart from '../slices/shoopingCartSlice';
-import evaluationSlice from '../slices/evaluationSlice';
+import evaluationProduct from '../slices/evaluationSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,7 +11,7 @@ const store = configureStore({
     apiProducts,
     apiProductDetails,
     shoppingCart,
-    evaluationSlice,
+    evaluationProduct,
   },
 });
 

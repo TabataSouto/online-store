@@ -30,7 +30,7 @@ export default function Search() {
       <SearchContainer>
         <SearchComponent>
           <Paper
-            sx={{ display: 'flex' }}
+            sx={{ display: 'flex', border: '1px solid gray', boxShadow: 'none' }}
           >
             <IconButton
               sx={{ p: "10px", display: "inline-block" }}

@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from "prop-types";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
-  addShoppingCart, updateShoppingCart,
-} from '../../redux/slices/shoopingCartSlice';
+  addShoppingCart,
+  updateShoppingCart,
+} from "../../redux/slices/shoopingCartSlice";
+import { CardActions, Button } from "@mui/material";
 
 export default function AddCartButton({ idProduct }) {
   const dispatch = useDispatch();
@@ -16,11 +18,16 @@ export default function AddCartButton({ idProduct }) {
   const handleClick = ({ target: { name } }) => {
     const product = products.list
       .filter((el) => el.id === name)
-      .map(({ id, title, thumbnail, price }) => (
-        { id, title, thumbnail, price, singlePrice: price, qtde: 1 }))[0];
+      .map(({ id, title, thumbnail, price }) => ({
+        id,
+        title,
+        thumbnail,
+        price,
+        singlePrice: price,
+        qtde: 1,
+      }))[0];
 
-    const existedProduct = shoppingCart
-      .some((el) => el.id === name);
+    const existedProduct = shoppingCart.some((el) => el.id === name);
 
     if (!existedProduct) {
       dispatch(addShoppingCart(product));
@@ -30,13 +37,16 @@ export default function AddCartButton({ idProduct }) {
   };
 
   return (
-    <button
-      name={ idProduct }
-      type="button"
-      onClick={ handleClick }
-    >
-      Adicionar ao carrinho
-    </button>
+    <CardActions>
+      <Button
+        size="small"
+        color="primary"
+        name={idProduct}
+        onClick={handleClick}
+      >
+        Adicionar ao carrinho
+      </Button>
+    </CardActions>
   );
 }
 

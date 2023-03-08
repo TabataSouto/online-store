@@ -7,17 +7,13 @@ const Container = styled('section')({
   })
 
   const SearchContainer = styled('div')({
-    display: 'flex',
-    flexDirection: 'column',
     width: '100%',
-    alignItems: 'center'
   })
 
 const SearchComponent = styled('div')({
     width: 'inherit',
-    padding: '5px 10px'
-    // display: 'flex',
-    // padding: '1px 20px',
+    paddingTop: 5,
+    paddingLeft: 10
   })
 
 export {
