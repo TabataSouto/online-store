@@ -1,17 +1,17 @@
 import { styled } from "@mui/system";
 
 const Container = styled('section')({
-    height: '85vh',
+    height: '89vh',
     overflow: 'auto',
     padding: '15px 5px',
-    margin: 20,
+    marginTop: 10,
 
     '&::-webkit-scrollbar': {
-      width: '0',
+      width: '0.3em',
     },
 
     '&::-webkit-scrollbar-thumb': {
-      backgroundColor: 'transparent',
+      backgroundColor: 'rgba(0, 0, 0, 0.1)',
     }
   })
 

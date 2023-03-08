@@ -12,7 +12,7 @@ const Container = styled('section')({
 
 const SearchComponent = styled('div')({
     width: 'inherit',
-    paddingTop: 5,
+    // paddingTop: 5,
     paddingLeft: 10
   })
 

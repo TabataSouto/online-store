@@ -13,7 +13,6 @@ const Container = styled('section')({
 
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: 'rgba(0, 0, 0, 0.1)',
-      // outline: '1px solid slategrey',
     }
   })
 
