@@ -47,7 +47,7 @@ export default function Search() {
             />
             <IconButton
               sx={{ p: "10px" }}
-              aria-label="search"
+              aria-label="shopping cart"
               onClick={() => navigate("/shopping-cart")}
             >
               <ShoppingCart />
